@@ -1,0 +1,20 @@
+<div class="reservations-page container mt-4">
+
+  <!-- Encabezado -->
+  <header class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h4 mb-0">Gestión de Reservas</h1>
+    <button class="btn btn-primary" (click)="onCreate()">+ Nueva Reserva</button>
+  </header>
+
+  <!-- Calendario de Reservas -->
+  <section class="reservation-calendar">
+    <ReservationCalendaryComponent
+      [reservations]="reservations"
+      [editingReservation]="editingReservation"
+      (edit)="onEdit($event)"
+      (cancel)="onCancel($event)"
+      (save)="saveEdit()"
+    ></ReservationCalendaryComponent>
+  </section>
+
+</div>
