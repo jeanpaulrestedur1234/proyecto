@@ -11,15 +11,12 @@ import { isSameDay } from 'date-fns';
 })
 export class ReservationCalendaryComponent {
   @Input() reservations: any[] = [];
-  @Input() editingReservation: any;
 
-  @Output() edit = new EventEmitter<any>();
-  @Output() cancel = new EventEmitter<any>();
-  @Output() save = new EventEmitter<any>();
 
   currentDate = new Date();
   daysInMonth: Date[] = [];
   today = new Date();
+  @Output() daySelected = new EventEmitter<Date>(); // Puedes usar string o Date
 
   ngOnInit() {
     this.generateCalendar();
@@ -35,18 +32,13 @@ export class ReservationCalendaryComponent {
     const dateStr = format(day, 'yyyy-MM-dd');
     return this.reservations.filter(r => r.start.startsWith(dateStr));
   }
-
-  onEdit(reservation: any) {
-    this.edit.emit(reservation);
+  
+  onDayClick(day: Date) {
+    this.daySelected.emit(day);
   }
 
-  onCancel(reservation: any) {
-    this.cancel.emit(reservation);
-  }
 
-  onSave() {
-    this.save.emit();
-  }
+
 
    isToday(date: Date): boolean {
     const today = this.today;

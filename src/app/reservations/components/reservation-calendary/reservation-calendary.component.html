@@ -12,8 +12,8 @@
       *ngFor="let day of daysInMonth" 
       class="calendar-day"
       [class.today]="isSameDay(day, today)"
-    >
-      <div class="date-label">{{ day.getDate() }}</div>
+       (click)="onDayClick(day)">
+      <div class="date-label" >{{ day.getDate() }}</div>
       <div class="reservations">
         <div 
           class="reservation" 

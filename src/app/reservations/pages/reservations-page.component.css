@@ -1,131 +1,47 @@
-/* Estilos generales del contenedor */
-.container {
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-.container:hover {
-  background-color: #f1f1f1;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: fadeInModal 0.3s ease-in-out;
 }
 
-/* Título principal */
-h1 {
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
   color: #333;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-h1:hover {
-  color: #007bff;
-}
-
-/* Estilo del botón "Nueva Reserva" */
-button.btn-primary {
-  background-color: #007bff;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  padding: 8px 16px;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button.btn-primary:hover {
-  background-color: #0056b3;
-  transform: translateY(-3px);
-}
-
-/* Animación de los botones dentro de la tabla */
-button.btn {
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  border-radius: 4px;
-  padding: 5px 12px;
-}
-
-button.btn:hover {
-  transform: translateY(-2px);
-}
-
-button.btn-warning {
-  background-color: #ffc107;
-  border: none;
-  color: white;
-}
-
-button.btn-warning:hover {
-  background-color: #e0a800;
-}
-
-button.btn-danger {
-  background-color: #dc3545;
-  border: none;
-  color: white;
-}
-
-button.btn-danger:hover {
-  background-color: #c82333;
-}
-
-/* Estilos para la tabla */
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-table th, table td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  transition: background-color 0.3s ease;
-}
-
-table th {
-  background-color: #007bff;
-  color: white;
-  font-weight: 600;
-}
-
-table tbody tr:hover {
-  background-color: #f1f1f1;
-}
-
-table tbody td input {
-  width: 100%;
-  padding: 8px;
-  font-size: 0.9rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s ease;
-}
-
-table tbody td input:focus {
-  border-color: #007bff;
-}
-
-/* Animación para filas al entrar */
-table tbody tr {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: slideIn 0.5s forwards;
-}
-
-@keyframes slideIn {
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Transición suave para la tabla cuando se editan o eliminan filas */
-table tbody tr.fadeOut {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }

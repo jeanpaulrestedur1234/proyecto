@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReservationTableComponent } from './components/reservation-table/reservation-table.component';
-import { ReservationsPageComponent } from './pages/reservations-page.component';
-
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
-  imports: [
+  exports: [
     CommonModule,
-    ReservationsPageComponent, // Importar el componente standalone aquí
-    ReservationTableComponent
+    FormsModule,
+     MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+    
+    
   ]
 })
 export class ReservationsModule {}

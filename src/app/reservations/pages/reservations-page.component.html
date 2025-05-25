@@ -3,18 +3,20 @@
   <!-- Encabezado -->
   <header class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h4 mb-0">Gestión de Reservas</h1>
-    <button class="btn btn-primary" (click)="onCreate()">+ Nueva Reserva</button>
   </header>
 
   <!-- Calendario de Reservas -->
-  <section class="reservation-calendar">
-    <ReservationCalendaryComponent
-      [reservations]="reservations"
-      [editingReservation]="editingReservation"
-      (edit)="onEdit($event)"
-      (cancel)="onCancel($event)"
-      (save)="saveEdit()"
-    ></ReservationCalendaryComponent>
+  <section class="reservation-calendar mb-4">
+    <ReservationCalendaryComponent [reservations]="reservations"  (daySelected)="openModalForDay($event)"></ReservationCalendaryComponent>
   </section>
+
+  <!-- Modal de Reservaciones -->
+  <div class="modal-overlay"  *ngIf="isModalOpen">
+    <div class="modal-content">
+      <h4>Reservaciones para {{ selectedDayReservations[0]?.start.split(' ')[0] || 'el día seleccionado' }}</h4>
+      <button class="modal-close" (click)="closeModal()">×</button>
+      <ReservationTableComponent [reservations]="selectedDayReservations"></ReservationTableComponent>
+    </div>
+  </div>
 
 </div>

@@ -1,0 +1,38 @@
+<!-- Botón de apertura -->
+<button (click)="openModal()" class="btn-reservar">Reservar espacio</button>
+
+<!-- Modal -->
+<div class="modal-overlay" [class.show]="isModalOpen">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Formulario de Reservación</h2>
+      <button class="btn-cerrar" (click)="closeModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Fecha</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" (dateChange)="checkAvailability()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+
+
+      <div *ngIf="availableSpaces.length > 0" class="espacios-disponibles">
+        <h3>Espacios disponibles:</h3>
+        <div class="lista-espacios">
+          <div *ngFor="let space of availableSpaces" class="espacio">
+            <span>{{ space }}</span>
+            <button class="btn-reservar-space" (click)="makeReservation(space)">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="selectedDate && availableSpaces.length === 0" class="no-disponibles">
+        <p>No hay espacios disponibles para esta fecha y hora.</p>
+      </div>
+    </div>
+  </div>
+</div>
