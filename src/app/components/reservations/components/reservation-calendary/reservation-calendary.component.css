@@ -13,16 +13,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #1976d2;
+  background-color: #604652;
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
+  
 }
+h3{
+  margin: 0;
+
+  }
 
 .calendar-header button {
   background: white;
   border: none;
-  color: #1976d2;
+  color: #604652;
   font-size: 1rem;
   padding: 0.2rem 0.6rem;
   border-radius: 50%;
@@ -53,7 +58,7 @@
   background: #fafafa;
   border: 1px solid #eee;
   border-radius: 8px;
-  min-height: 100px;
+  min-height: 3rem;
   padding: 0.5rem;
   position: relative;
   overflow: hidden;
@@ -66,7 +71,7 @@
 }
 
 .calendar-day.today {
-  border: 2px solid #1976d2;
+  border: 2px solid #604652;
   background-color: #e3f2fd;
 }
 
@@ -79,7 +84,7 @@
 
 .reservations {
   font-size: 0.85rem;
-  max-height: 80px;     /* Controla la altura visible */
+  max-height: 2rem;     /* Controla la altura visible */
   overflow-y: auto;      /* Activa scroll vertical si se necesita */
   padding-right: 4px;    /* Espacio para la barra de scroll */
   
@@ -89,7 +94,7 @@
 }
 
 .reservations::-webkit-scrollbar-thumb {
-  background-color: #90caf9;
+  background-color: #735557;
   border-radius: 3px;
 }
 
@@ -98,16 +103,16 @@
 }
 
 .reservation {
-  background-color: #bbdefb;
+  background-color: #D29F80;
   margin-bottom: 0.3rem;
   padding: 0.3rem;
-  border-left: 4px solid #1976d2;
+  border-left: 4px solid #604652;
   border-radius: 4px;
   animation: fadeIn 0.3s ease;
 }
 
 .reservation strong {
-  color: #0d47a1;
+  color: #604652;
 }
 
 .actions {
@@ -129,4 +134,9 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
+}
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 600px;
 }

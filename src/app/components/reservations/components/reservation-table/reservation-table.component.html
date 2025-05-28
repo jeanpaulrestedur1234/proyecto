@@ -1,0 +1,37 @@
+<div class="reservation-list">
+  <div *ngFor="let hour of hours" class="reservation-slot d-flex align-items-center">
+    <div class="hour-label me-3">{{ hour }}</div>
+
+    <ng-container *ngIf="getReservationByHour(hour) as reservation; else emptySlot">
+      <ng-container *ngIf="editingReservation?.id === reservation.id; else viewMode">
+        <!-- Modo de edición -->
+        <div class="reservation-details flex-grow-1">
+          <input type="text" class="form-control mb-1" [(ngModel)]="editingReservation.user" placeholder="Usuario">
+          <input type="text" class="form-control mb-1" [(ngModel)]="editingReservation.space" placeholder="Espacio">
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-primary" (click)="saveReservation()">Guardar</button>
+            <button class="btn btn-sm btn-secondary" (click)="cancelReservation(reservation)">Cancelar</button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #viewMode>
+        <!-- Modo de visualización -->
+        <div class="reservation-details flex-grow-1">
+          <strong>{{ reservation.user }}</strong> - {{ reservation.space }}
+          <div class="small text-muted">{{ reservation.start | date:'shortTime' }} - {{ reservation.end | date:'shortTime' }}</div>
+          <div class="mt-1">
+            <button class="btn btn-sm btn-outline-primary" (click)="editReservation(reservation)">Editar</button>
+            <button class="btn btn-sm btn-outline-danger ms-1" (click)="cancelReservation(reservation)">Cancelar</button>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #emptySlot>
+      <div class="empty-slot flex-grow-1">
+        <button class="btn btn-sm btn-success" (click)="createReservation(hour)">Crear Reserva</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

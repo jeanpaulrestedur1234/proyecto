@@ -1,0 +1,128 @@
+.reservation-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.reservation-slot {
+  background-color: #fdf7f5;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(96, 70, 82, 0.1); /* tono 604652 */
+  transition: background-color 0.3s ease;
+}
+
+.reservation-slot:hover {
+  background-color: #f4e7e3; /* suave highlight */
+}
+
+.hour-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #735557;
+  width: 70px;
+}
+
+.reservation-details {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #604652;
+  justify-content: space-between;
+}
+
+.reservation-details strong {
+  font-size: 1rem;
+  color: #604652;
+}
+
+.reservation-details .text-muted {
+  font-size: 0.85rem;
+  color: #97866A;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Botón Editar */
+.btn-edit {
+  background-color: #735557;
+  color: #fafafa;
+}
+
+.btn-edit:hover {
+  background-color: #604652;
+}
+
+/* Botón Cancelar */
+.btn-cancel {
+  background-color: #D29F80;
+  color: #fff;
+}
+
+.btn-cancel:hover {
+  background-color: #c88565;
+}
+
+/* Botón Crear */
+.btn-create {
+  background-color: #97866A;
+  color: #fff;
+}
+
+.btn-create:hover {
+  background-color: #847656;
+}
+
+.empty-slot {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Inputs */
+input.form-control-sm {
+  border: none;
+  border-bottom: 2px solid #97866A;
+  background-color: transparent;
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 4px 6px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  outline: none;
+  box-shadow: none;
+}
+
+input.form-control-sm:focus {
+  border-bottom: 2px solid #604652;
+  background-color: #fdf7f5;
+}
+
+/* Transiciones suaves */
+td input.form-control-sm {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Fila en edición */
+tr.editing-row {
+  background-color: #f4e7e3;
+  transition: background-color 0.3s ease;
+}

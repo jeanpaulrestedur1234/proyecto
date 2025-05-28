@@ -1,0 +1,7 @@
+<div [ngStyle]="{ 'grid-template-columns': 'repeat(' + columns + ', 1fr)' }" class="chart-container">
+  <canvas baseChart
+          [type]="barChartType"
+          [data]="barChartData"
+          [options]="barChartOptions">
+  </canvas>
+</div>

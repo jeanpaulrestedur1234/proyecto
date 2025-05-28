@@ -1,0 +1,34 @@
+<div class="calendar">
+  <div class="calendar-header">
+    <button (click)="prevMonth()">‹</button>
+    <h3>{{ currentDate | date: 'MMMM yyyy' }}</h3>
+    <button (click)="nextMonth()">›</button>
+  </div>
+
+  <div class="calendar-grid">
+    <!-- Días de la semana alineados (lunes es la primera columna) -->
+    <div class="day-name" *ngFor="let day of ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom']">{{ day }}</div>
+
+    <!-- Espacios vacíos para alinear el primer día del mes -->
+    <div *ngFor="let _ of [].constructor(getLeadingEmptyDays())"></div>
+
+    <!-- Días del mes -->
+    <div 
+      *ngFor="let day of daysInMonth" 
+      class="calendar-day"
+      [class.today]="isSameDay(day, today)"
+      (click)="onDayClick(day)"
+       [ngStyle]="{
+        'background-color': getBackgroundColor(getReservationsForDay(day).length)
+      }">
+      <div class="date-label">{{ day.getDate() }}</div>
+      <div class="reservations">
+        <div 
+          class="reservation" 
+          *ngFor="let res of getReservationsForDay(day)">
+          <strong>{{ res.user }}</strong><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,8 +15,7 @@
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
-  width: 90%;
-  max-width: 800px;
+  width: 50%;
   max-height: 90%;
   overflow-y: auto;
   position: relative;
@@ -43,5 +42,45 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+
+.body-reservations {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  padding: 2rem;
+  gap: 10%;
+}
+.chart-component  {
+  max-width: 45%;
+  height: 400px;
+  align-self: top;
+  margin-bottom: 2rem;
+
+}
+.calendary-componenet{
+  max-width: 45%;
+  height: 400px;
+  align-self: top;
+  flex:1;
+}
+h4, h5{
+  color: #604652;
+  margin-bottom: 1rem;
+
+}
+h5{
+  font-size: 1.5rem;
+}
+@media (max-width: 1000px) {
+  .body-reservations {
+    flex-direction: column;
+    align-items: center;
+  }
+  .chart-component, .calendary-componenet {
+    max-width: 100%;
+    height: 300px;
   }
 }

@@ -9,7 +9,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   exports: [
     CommonModule,
     FormsModule,
-     MatFormFieldModule,
+    MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule

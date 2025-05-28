@@ -1,6 +1,6 @@
 // app.Routes.ts
 import { Routes } from '@angular/router';
-import { ReservationsPageComponent } from './reservations/pages/reservations-page.component';  // Importa tus componentes
+import { ReservationsPageComponent } from './components/reservations/pages/reservations-page.component';  // Importa tus componentes
 
 export const routes: Routes = [
   { path: '', component: ReservationsPageComponent },  // Ruta por defecto, página de reservas
