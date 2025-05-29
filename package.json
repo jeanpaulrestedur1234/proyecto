@@ -21,6 +21,7 @@
     "@angular/router": "^19.2.0",
     "chart.js": "^4.4.9",
     "date-fns": "^4.1.0",
+    "mathlive": "^0.105.3",
     "ng2-charts": "^5.0.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

@@ -1,4 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: var(--light-bg-color);
+  color: var(--text-color);
+}
 
-html, body { height: 100% }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  /* --- PALETA DE COLORES PERSONALIZADA --- */
+  --primary-color: #3ac9c47e;         /* Turquesa - color principal para botones, enlaces */
+  --secondary-color: #0A1828;       /* Azul oscuro - fondo o texto importante */
+  --accent-color: #bcbcbc69;          /* Dorado - detalles elegantes */
+
+  /* --- FONDOS Y TEXTOS --- */
+  --light-bg-color: #f9f9f9;        /* Fondo claro general */
+  --dark-bg-color: #0A1828;         /* Fondo oscuro */
+  --text-color: #1c1c1c;            /* Texto base */
+  --muted-text-color: #666;         /* Texto secundario */
+
+  /* --- SOMBRAS Y EFECTOS --- */
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --modal-shadow-color: rgba(0, 0, 0, 0.15);
+
+  /* --- BORDES Y RADIOS --- */
+  --border-radius-sm: 6px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+
+  /* --- FUENTES Y TAMAÑOS --- */
+  --font-size-h5: 1.5rem;
+  --font-size-modal-close: 0.75rem;
+
+  /* --- TRANSICIONES --- */
+  --transition-ease: 0.3s ease;
+  --transition-ease-out: 0.3s ease-in-out;
+}
+
+/* --- TIPOGRAFÍA GLOBAL --- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary-color); /* Azul oscuro */
+  margin: var(--spacing-1rem) 0;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+a {
+  color: var(--primary-color); /* Turquesa */
+  text-decoration: none;
+  transition: var(--transition-ease);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- INPUTS Y FORMULARIOS --- */
+input, button, select, textarea {
+  font-family: inherit;
+  border-radius: var(--border-radius-sm);
+}
+
+/* --- BOTONES --- */
+button {
+  background-color: var(--primary-color); /* Turquesa */
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-ease);
+}
+button:hover {
+  background-color: #12665e; /* Versión más oscura de turquesa */
+}

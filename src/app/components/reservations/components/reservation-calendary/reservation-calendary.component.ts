@@ -60,13 +60,13 @@ export class ReservationCalendaryComponent {
     return (day + 6) % 7;
   }
 
- getBackgroundColor(reservationsCount: number): string {
+getBackgroundColor(reservationsCount: number): string {
   const max = 15;
   const clamped = Math.min(reservationsCount, max);
   const t = clamped / max;
 
-  const start = this.hexToRgb('#99818D');
-  const end = this.hexToRgb( '#D29F80');
+  const start = { r: 250, g: 250, b: 250 };  // Blanco cálido
+  const end = { r: 23, g: 133, b: 130 };     // Azul turquesa oscuro
 
   const r = Math.round(start.r + (end.r - start.r) * t);
   const g = Math.round(start.g + (end.g - start.g) * t);
@@ -75,19 +75,6 @@ export class ReservationCalendaryComponent {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-hexToRgb(hex: string): { r: number; g: number; b: number } {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, (_, r, g, b) => r + r + g + g + b + b);
-
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-      }
-    : { r: 0, g: 0, b: 0 };
-}
 
 
 }

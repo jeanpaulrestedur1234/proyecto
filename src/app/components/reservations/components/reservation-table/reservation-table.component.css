@@ -7,7 +7,7 @@
 }
 
 .reservation-slot {
-  background-color: #fdf7f5;
+  background-color: var(--accent-color);
   display: flex;
   align-items: center;
   margin: 0.5rem 0;
@@ -33,18 +33,18 @@
   flex-direction: row;
   flex-grow: 1;
   font-size: 0.95rem;
-  color: #604652;
+  color: var(--primary-color);
   justify-content: space-between;
 }
 
 .reservation-details strong {
   font-size: 1rem;
-  color: #604652;
+  color: var(--primary-color);
 }
 
 .reservation-details .text-muted {
   font-size: 0.85rem;
-  color: #97866A;
+  color: #000000;
 }
 
 .button-group {
@@ -69,7 +69,7 @@ button {
 }
 
 .btn-edit:hover {
-  background-color: #604652;
+  background-color: var(--primary-color);
 }
 
 /* Botón Cancelar */
@@ -112,7 +112,7 @@ input.form-control-sm {
 }
 
 input.form-control-sm:focus {
-  border-bottom: 2px solid #604652;
+  border-bottom: 2px solid var(--primary-color);
   background-color: #fdf7f5;
 }
 

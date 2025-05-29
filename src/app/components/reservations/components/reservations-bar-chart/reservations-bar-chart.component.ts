@@ -50,7 +50,8 @@ generateChartData() {
   const labels = Object.keys(roomCounts);
   const data = Object.values(roomCounts);
 
-  const palette = ['#604652', '#735557', '#97866A', '#D29F80'];
+  const palette = ['#E0E0E0', '#B0B0B0', '#888888', '#4A4A4A'];
+
 
   // 🎨 Asignar color único a cada sala
   const backgroundColors = labels.map((_, i) => palette[i % palette.length]);

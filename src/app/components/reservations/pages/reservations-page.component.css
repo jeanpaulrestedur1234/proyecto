@@ -1,38 +1,27 @@
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* fondo semitransparente */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(96, 70, 82, 0.15);
+  border: none;
+  border-radius: 50%;
+  color: #333;
+  font-size: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+}
+.modal-close:hover {
+  background-color: #8f8f8fa1;
+  color: #fff;
+  transform: scale(1.1);
 }
 
-.modal-content {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 50%;
-  max-height: 90%;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  animation: fadeInModal 0.3s ease-in-out;
-}
-
-.modal-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  color: #333;
-  cursor: pointer;
-}
 
 @keyframes fadeInModal {
   from {
@@ -49,38 +38,91 @@
 .body-reservations {
   display: flex;
   flex-direction: row;
-  align-items: top;
-  padding: 2rem;
-  gap: 10%;
+  align-items: center;
+  padding: 1rem;
+  gap: 1%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.chart-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 30%;
+  height: auto;
+  margin-bottom: 1rem;
+
 }
 .chart-component  {
-  max-width: 45%;
   height: 400px;
+  width: 80%;
+  
+  
   align-self: top;
-  margin-bottom: 2rem;
+  padding: 0  2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  
 
 }
 .calendary-componenet{
-  max-width: 45%;
-  height: 400px;
+  max-width: 40%;
+  height: auto;
   align-self: top;
   flex:1;
-}
-h4, h5{
-  color: #604652;
+  padding:  2rem ;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   margin-bottom: 1rem;
+  min-width: 600px;
+}
+
+.reservation-table {
+  padding: 0  2rem;
+  background: #fff;
+ 
+  border-radius: 12px;
+  max-height: 30%;
+  max-width: 15%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: fadeInModal 0.3s ease-in-out;
+  position: relative;
+  flex: 1;
+  min-width: 600px;
+}
+
+h4, h5{
+  color: var(--secondary-color);
+  margin: 1rem 0;
 
 }
 h5{
   font-size: 1.5rem;
+}
+header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 @media (max-width: 1000px) {
   .body-reservations {
     flex-direction: column;
     align-items: center;
   }
-  .chart-component, .calendary-componenet {
+  .chart-component, .calendary-componenet  {
+    min-width: 80%;
+  }
+  .reservation-table {
     max-width: 100%;
-    height: 300px;
+    width: 80%;
+  }
+  .body-reservations {
+    gap:50px
   }
 }
