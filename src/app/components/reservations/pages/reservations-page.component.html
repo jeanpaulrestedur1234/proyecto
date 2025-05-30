@@ -13,11 +13,19 @@
       <div class="chart-component col-md-6 mb-4 mb-md-0">
 
 
-        <h5 class="mb-3">Distribución de Reservas</h5>
-        
+
         <app-reservations-barchart [reservations]="reservations" [title]="'Reservas por sala'" [columns]="2">
         </app-reservations-barchart>
 
+      </div>
+      <div class="reservation-table-display" *ngIf="isModalOpen">
+        <div class="modal-header">
+          <h5 class="mb-3">{{ selectedDate }}</h5>
+          <button class="modal-close" (click)="closeModal()">x</button>
+        </div>
+        <div class="modal-content">
+          <app-reservation-table [reservations]="selectedDayReservations"></app-reservation-table>
+        </div>
       </div>
     </div>
 
@@ -29,14 +37,7 @@
       </app-reservation-calendary>
     </div>
 
-    <div class="reservation-table" *ngIf="isModalOpen">
-      <h5 class="mb-3">
-        {{ selectedDate }}
-      </h5>
-      <button class="modal-close" (click)="closeModal()">x</button>
-      <app-reservation-table [reservations]="selectedDayReservations"></app-reservation-table>
 
-    </div>
   </div>
 
 
