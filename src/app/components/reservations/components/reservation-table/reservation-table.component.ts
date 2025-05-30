@@ -2,12 +2,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   standalone: true,
-  selector: 'ReservationTableComponent',
+  selector: 'app-reservation-table',
   imports: [CommonModule, FormsModule],
   templateUrl: './reservation-table.component.html',
-  styleUrls: ['./reservation-table.component.css']
+  styleUrl: './reservation-table.component.scss'
 })
 export class ReservationTableComponent {
   @Input() reservations: any[] = [];

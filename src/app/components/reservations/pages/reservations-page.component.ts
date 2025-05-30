@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Reservation } from '../models/reservation.model';
 import { ReservationService } from '../services/reservation.service';
 import { ReservationCalendaryComponent } from '../components/reservation-calendary/reservation-calendary.component';
-import { ReservationTableComponent } from '../components/reservation-table/reservation-table.component';
 import { ReservationsBarChartComponent } from '../components/reservations-bar-chart/reservations-bar-chart.component';
+import { ReservationTableComponent } from '../components/reservation-table/reservation-table.component';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 
@@ -12,9 +12,9 @@ import { es } from 'date-fns/locale';
 @Component({
   standalone: true,
   selector: 'app-reservations-page',
-  imports: [CommonModule, ReservationCalendaryComponent, ReservationTableComponent, ReservationsBarChartComponent],
+  imports: [CommonModule, ReservationCalendaryComponent, ReservationsBarChartComponent,ReservationTableComponent],
   templateUrl: './reservations-page.component.html',
-  styleUrls: ['./reservations-page.component.css']
+  styleUrls: ['./reservations-page.component.scss']
 })
 export class ReservationsPageComponent implements OnInit {
   reservations: Reservation[] = [];

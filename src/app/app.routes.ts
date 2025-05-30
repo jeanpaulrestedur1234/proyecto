@@ -1,9 +1,19 @@
-// app.Routes.ts
 import { Routes } from '@angular/router';
-import { ReservationsPageComponent } from './components/reservations/pages/reservations-page.component';  // Importa tus componentes
+import { ReservationsPageComponent } from './components/reservations/pages/reservations-page.component';
 import { LoginPageComponent } from './components/auth/pages/login-page/login-page.component';
+import { HomeComponent } from './components/home/home.component';
+
 export const routes: Routes = [
-  { path: '', component: LoginPageComponent },  // Ruta por defecto, página de reservas
-  { path: '**', redirectTo: '' } ,
-   { path: 'Reservation', component: ReservationsPageComponent },  // Ruta para el login
+  { path: 'login', component: LoginPageComponent }, // Ruta para login
+
+  {
+    path: '',
+    component: HomeComponent, // Home como layout base
+    children: [
+      { path: '', redirectTo: 'reservation', pathMatch: 'full' }, // Redirección por defecto
+      { path: 'reservation', component: ReservationsPageComponent } 
+    ]
+  },
+
+  { path: '**', redirectTo: '' } // Ruta comodín
 ];

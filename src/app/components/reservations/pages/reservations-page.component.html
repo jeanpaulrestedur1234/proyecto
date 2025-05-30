@@ -14,8 +14,9 @@
 
 
         <h5 class="mb-3">Distribución de Reservas</h5>
-        <ReservationsBarChartComponent [reservations]="reservations" [title]="'Reservas por sala'" [columns]="2">
-        </ReservationsBarChartComponent>
+        
+        <app-reservations-barchart [reservations]="reservations" [title]="'Reservas por sala'" [columns]="2">
+        </app-reservations-barchart>
 
       </div>
     </div>
@@ -24,8 +25,8 @@
     <!-- 📅 Calendario -->
     <div class="calendary-componenet col-md-6">
       <h5 class="mb-3">Calendario de Reservas</h5>
-      <ReservationCalendaryComponent [reservations]="reservations" (daySelected)="openModalForDay($event)">
-      </ReservationCalendaryComponent>
+      <app-reservation-calendary [reservations]="reservations" (daySelected)="openModalForDay($event)">
+      </app-reservation-calendary>
     </div>
 
     <div class="reservation-table" *ngIf="isModalOpen">
@@ -33,8 +34,8 @@
         {{ selectedDate }}
       </h5>
       <button class="modal-close" (click)="closeModal()">x</button>
+      <app-reservation-table [reservations]="selectedDayReservations"></app-reservation-table>
 
-      <ReservationTableComponent [reservations]="selectedDayReservations"></ReservationTableComponent>
     </div>
   </div>
 

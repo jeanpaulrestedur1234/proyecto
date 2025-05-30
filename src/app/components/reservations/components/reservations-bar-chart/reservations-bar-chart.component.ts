@@ -5,9 +5,9 @@ import { NgChartsModule } from 'ng2-charts';
 
 @Component({
   standalone: true,
-  selector: 'ReservationsBarChartComponent',
+  selector: 'app-reservations-barchart',
   templateUrl: './reservations-bar-chart.component.html',
-  styleUrls: ['./reservations-bar-chart.component.css'],
+  styleUrl: './reservations-bar-chart.component.scss',
   imports: [CommonModule, NgChartsModule],
 })
 export class ReservationsBarChartComponent implements OnInit {

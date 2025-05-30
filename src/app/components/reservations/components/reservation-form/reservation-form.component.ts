@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ReservationsModule } from '../../ reservations.module';
 interface Reservation {
   id: number;
   user: string;
@@ -11,9 +10,7 @@ interface Reservation {
 @Component({
   selector: 'ReservationFormComponent',
   standalone: true,
-  imports: [
-    ReservationsModule
-  ],
+  imports: [],
   templateUrl: './reservation-form.component.html',
   styleUrls: ['./reservation-form.component.css']
 })

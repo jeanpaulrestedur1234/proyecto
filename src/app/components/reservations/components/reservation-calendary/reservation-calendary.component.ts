@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, getDay } from 'date-fns';
 import { isSameDay } from 'date-fns';
 @Component({
-  selector: 'ReservationCalendaryComponent',
   standalone: true,
   imports: [CommonModule],
+  selector: 'app-reservation-calendary',
   templateUrl: './reservation-calendary.component.html',
-  styleUrls: ['./reservation-calendary.component.css']
+  styleUrl: './reservation-calendary.component.scss'
 })
 export class ReservationCalendaryComponent {
   @Input() reservations: any[] = [];
