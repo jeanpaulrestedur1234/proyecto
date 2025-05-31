@@ -1,6 +1,6 @@
 .app-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   padding: 1rem 2rem;
   background-color: var(--secondary-color);
@@ -24,6 +24,7 @@
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: background-color var(--transition-ease);
+  align-self: end;
 }
 
 .logout-button:hover {

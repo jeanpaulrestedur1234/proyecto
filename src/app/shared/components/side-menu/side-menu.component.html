@@ -1,0 +1,18 @@
+<div class="menu-button" *ngIf="!isOpen" (click)="toggleMenu()">☰</div>
+
+<div class="menu-overlay" *ngIf="isOpen" (click)="closeMenu()"></div>
+
+<div class="side-menu" [class.open]="isOpen">
+  <ul>
+    <li *ngFor="let item of menuItems">
+      <div (click)="navigateTo(item.path)" class="menu-item">
+        {{ item.label }}
+      </div>
+      <ul *ngIf="item.children">
+        <li *ngFor="let child of item.children" (click)="navigateTo(child.path)" class="submenu-item">
+          {{ child.label }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
