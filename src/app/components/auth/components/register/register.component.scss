@@ -1,0 +1,140 @@
+.register-container{
+    box-shadow: 0 5px 20px var(--box-shadow-color);
+    background-color: #e0dfdfb7;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    box-shadow: inset;
+    
+ 
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    color: #777;
+    margin-bottom: 5%;
+  }
+
+  form {
+    width: 100%;
+    max-width: 350px;
+
+    .form-group {
+      margin-bottom: 20px;
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        box-sizing: border-box;
+        &:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 5px rgba(124, 58, 237, 0.3); /* Example purple shadow */
+        }
+      }
+    }
+
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        input {
+          margin-right: 5px;
+        }
+      }
+      a {
+        color:  var(--primary-color);; /* Example purple */
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .sign-up-button {
+      background-color: var(--primary-color);; /* Example purple */
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: var(--secondary-color); /* Darker purple on hover */
+      }
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: #999;
+      span {
+        padding: 0 15px;
+      }
+      &::before,
+      &::after {
+        content: '';
+        flex-grow: 1;
+        border-top: 1px solid #eee;
+      }
+    }
+
+    .google-sign-up-button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary-color);
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: border-color 0.3s ease;
+      img {
+        height: 20px;
+        margin-right: 10px;
+      }
+      &:hover {
+        border-color: #aaa;
+      }
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #777;
+      text-align: center;
+      a {
+        color: var(--primary-color);; /* Example purple */
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+

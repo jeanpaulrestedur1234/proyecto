@@ -1,49 +1,9 @@
 <div class="login-container">
   <div class="login-left">
-    <div class="loging-container">
-      <div class="logo">
-        <!-- Logo aquí -->
-      </div>
-      <h1>Bienvenido de nuevo</h1>
-      <p class="subtitle">Por favor, introduce tus datos</p>
-
-      <form (ngSubmit)="login()">
-        <div class="form-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" [(ngModel)]="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" [(ngModel)]="password" name="password" required>
-        </div>
-
-        <div class="remember-forgot">
-          <label class="checkbox-label">
-            <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe">
-            Recordar por 30 días
-          </label>
-          <a href="#">¿Olvidaste tu contraseña?</a>
-        </div>
-
-        <button type="submit" class="sign-in-button">Iniciar sesión</button>
-
-        <div class="separator">
-          <span>o</span>
-        </div>
-
-        <button class="google-sign-in-button">
-          <img src="https://developers.google.com/identity/images/g-logo.png" alt="Logo de Google">
-          Iniciar sesión con Google
-        </button>
-
-        <p class="signup-link">
-          ¿No tienes una cuenta? <a href="#">Regístrate</a>
-        </p>
-      </form>
-    </div>
+    <app-login *ngIf="showLogin" (switchView)="showLogin = false"></app-login>
+    <app-register *ngIf="!showLogin" (switchView)="showLogin = true"></app-register>
   </div>
   <div class="login-right">
-    <!-- Contenido adicional o imagen aquí -->
+    <!-- You can add images, graphics, or information here -->
   </div>
 </div>
