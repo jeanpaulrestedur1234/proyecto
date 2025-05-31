@@ -122,14 +122,15 @@
       }
     }
 
-    .signup-link {
+    .login-link {
       margin-top: 20px;
       font-size: 0.9rem;
       color: #777;
-      text-align: center;
+      text-align: center; 
       a {
         color: var(--primary-color);; /* Example purple */
         text-decoration: none;
+        cursor: pointer;
         &:hover {
           text-decoration: underline;
         }

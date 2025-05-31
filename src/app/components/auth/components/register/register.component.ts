@@ -13,7 +13,7 @@ export class RegisterComponent {
   confirmPassword: string = '';
   @Output() switchView = new EventEmitter<void>();
 
-  goToRegister() {
+  goToLogin() {
     this.switchView.emit();
   }
 
