@@ -1,9 +1,11 @@
 <div class="login-container">
   <div class="login-left">
+    <div class="box-container">
     <app-login *ngIf="showLogin" (switchView)="showLogin = false"></app-login>
     <app-register *ngIf="!showLogin" (switchView)="showLogin = true"></app-register>
+    </div>
   </div>
-  <div class="login-right">
-    <!-- You can add images, graphics, or information here -->
-  </div>
+</div>
+<div class="login-right">
+  <!-- You can add images, graphics, or information here -->
 </div>
