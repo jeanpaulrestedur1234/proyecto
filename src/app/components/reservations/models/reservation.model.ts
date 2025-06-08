@@ -2,7 +2,7 @@
 export interface Reservation {
   id: number;
   user: string;
-  space: string;
+  service: string;
   start: string;
   end: string;
 }

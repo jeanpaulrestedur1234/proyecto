@@ -13,7 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class ReservationTableComponent implements OnInit, OnChanges {
   @Input() reservations: any[] = [];
-  @Input() spaces: string[] = [];
+  @Input() services: string[] = [];
   @Output() create = new EventEmitter<string>();
   @Output() edit = new EventEmitter<any>();
   @Output() cancel = new EventEmitter<any>();
@@ -22,26 +22,26 @@ export class ReservationTableComponent implements OnInit, OnChanges {
   editingReservation: any = null;
   hours: string[] = [];
 
-  uniqueSpaces: string[] = [];
-  selectedSpace: string = '';
+  uniqueservices: string[] = [];
+  selectedservice: string = '';
 
   ngOnInit() {
-    this.initSpaces();
+    this.initservices();
     this.generateHourSlots();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.initSpaces();
+    this.initservices();
     this.generateHourSlots();
   }
 
-  initSpaces() {
-    const spacesFromReservations = this.reservations.map(r => r.space);
-    const allSpaces = [...this.spaces, ...spacesFromReservations];
-    this.uniqueSpaces = [...new Set(allSpaces)];
+  initservices() {
+    const servicesFromReservations = this.reservations.map(r => r.service);
+    const allservices = [...this.services, ...servicesFromReservations];
+    this.uniqueservices = [...new Set(allservices)];
 
-    if (this.uniqueSpaces.length > 0 && !this.selectedSpace) {
-      this.selectedSpace = this.uniqueSpaces[0];
+    if (this.uniqueservices.length > 0 && !this.selectedservice) {
+      this.selectedservice = this.uniqueservices[0];
     }
   }
 
@@ -54,7 +54,7 @@ export class ReservationTableComponent implements OnInit, OnChanges {
     const occupiedHours = new Set<number>();
 
     // Filtrar por espacio seleccionado
-    const filtered = this.reservations.filter(r => r.space === this.selectedSpace);
+    const filtered = this.reservations.filter(r => r.service === this.selectedservice);
 
     filtered.forEach(res => {
       const start = new Date(res.start).getHours();
@@ -76,7 +76,7 @@ export class ReservationTableComponent implements OnInit, OnChanges {
     const hourNumber = parseInt(hour.split(':')[0], 10);
     return this.reservations.find(r => {
       const resHour = new Date(r.start).getHours();
-      return resHour === hourNumber && r.space === this.selectedSpace;
+      return resHour === hourNumber && r.service === this.selectedservice;
     });
   }
 

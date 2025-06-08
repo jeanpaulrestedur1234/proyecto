@@ -4,9 +4,9 @@ import { Reservation } from '../models/reservation.model';
 @Injectable({ providedIn: 'root' })
 export class ReservationService {
   private reservations: Reservation[] = [
-    { id: 1, user: 'Juan', space: 'Sala 1', start: '2025-05-09 10:00', end: '2025-05-09 12:00' },
-    { id: 2, user: 'Daniel', space: 'Sala 1', start: '2025-05-09 10:00', end: '2025-05-09 12:00' },
-    { id: 6, user: 'Ana', space: 'Sala 2', start: '2025-05-10 14:00', end: '2025-05-10 16:00' },
+    { id: 1, user: 'Juan', service: 'Sala 1', start: '2025-05-09 10:00', end: '2025-05-09 12:00' },
+    { id: 2, user: 'Daniel', service: 'Sala 1', start: '2025-05-09 10:00', end: '2025-05-09 12:00' },
+    { id: 6, user: 'Ana', service: 'Sala 2', start: '2025-05-10 14:00', end: '2025-05-10 16:00' },
   ];
 
   getReservations(): Reservation[] {

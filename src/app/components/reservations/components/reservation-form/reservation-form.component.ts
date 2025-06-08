@@ -5,13 +5,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
-interface Reservation {
-  id: number;
-  user: string;
-  space: string;
-  start: string;
-  end: string;
-}
+import { Reservation } from '../../models/reservation.model';
 
 @Component({
   selector: 'app-reservation-form',
@@ -30,18 +24,17 @@ interface Reservation {
 export class ReservationFormComponent implements OnChanges {
   @Input() reservations: Reservation[] = [];
 
-  // Ahour recibe fecha y hour por separado
-  @Input() day: string = ''; // formato 'yyyy-MM-dd'
-  @Input() hour: string = ''; // formato 'HH:mm'
+  @Input() day: string = ''; 
+  @Input() hour: string = ''; 
 
   selectedUser: string = '';
 
-  startDateTime: string = ''; // 'yyyy-MM-ddTHH:mm'
+  startDateTime: string = ''; 
   endDateTime: string = '';
   endhour: string = '';
 
-  spaces: string[] = ['Sala 1', 'Sala 2', 'Sala 3'];
-  availableSpaces: string[] = [];
+  services: string[] = ['Sala 1', 'Sala 2', 'Sala 3'];
+  availableservices: string[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
     if ((changes['day'] || changes['hour']) && this.day && this.hour) {
@@ -75,16 +68,16 @@ export class ReservationFormComponent implements OnChanges {
 
   checkAvailability() {
     if (!this.startDateTime || !this.endDateTime) {
-      this.availableSpaces = [];
+      this.availableservices = [];
       return;
     }
 
     const start = new Date(this.startDateTime).getTime();
     const end = new Date(this.endDateTime).getTime();
 
-    this.availableSpaces = this.spaces.filter(space => {
+    this.availableservices = this.services.filter(service => {
       return !this.reservations.some(res => {
-        if (res.space !== space) return false;
+        if (res.service !== service) return false;
 
         const resStart = new Date(res.start).getTime();
         const resEnd = new Date(res.end).getTime();
@@ -94,7 +87,7 @@ export class ReservationFormComponent implements OnChanges {
     });
   }
 
-  makeReservation(space: string) {
+  makeReservation(service: string) {
     if (!this.selectedUser || !this.startDateTime || !this.endDateTime) {
       alert('Debes completar todos los campos.');
       return;
@@ -104,27 +97,27 @@ export class ReservationFormComponent implements OnChanges {
     const end = new Date(this.endDateTime).getTime();
 
     const hasConflict = this.reservations.some(res => {
-      if (res.space !== space) return false;
+      if (res.service !== service) return false;
       const resStart = new Date(res.start).getTime();
       const resEnd = new Date(res.end).getTime();
       return start < resEnd && end > resStart;
     });
 
     if (hasConflict) {
-      alert(`El espacio ${space} ya está reservado en ese hourrio.`);
+      alert(`El espacio ${service} ya está reservado en ese hourrio.`);
       return;
     }
 
     const newReservation: Reservation = {
       id: this.reservations.length + 1,
       user: this.selectedUser,
-      space: space,
+      service: service,
       start: this.startDateTime.replace('T', ' '),
       end: this.endDateTime.replace('T', ' ')
     };
 
     this.reservations.push(newReservation);
-    alert(`Reserva confirmada en ${space} para ${this.selectedUser}.`);
+    alert(`Reserva confirmada en ${service} para ${this.selectedUser}.`);
     this.checkAvailability();
   }
   onEndHourChange() {

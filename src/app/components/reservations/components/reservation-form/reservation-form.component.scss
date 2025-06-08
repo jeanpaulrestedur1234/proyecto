@@ -39,20 +39,20 @@
 }
 
 /* Contenedor de espacios disponible */
-.form-spaces {
+.form-services {
   flex: 1 1 35%; /* que ocupe el resto (aprox 35%) */
   min-width: 300px;
   max-width: 100%;
 }
 
-.spaces {
+.services {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
 }
 
-.spaces button {
+.services button {
   padding: 0.5rem 1rem;
   border: none;
   background: var(--primary-color, #694fad);
@@ -62,7 +62,7 @@
   transition: background 0.2s ease;
 }
 
-.spaces button:disabled {
+.services button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
@@ -73,7 +73,7 @@
     flex-direction: column;
   }
   .form-questions,
-  .form-spaces {
+  .form-services {
     flex: 1 1 100%;
     min-width: auto;
   }

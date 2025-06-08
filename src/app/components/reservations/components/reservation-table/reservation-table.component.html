@@ -2,8 +2,8 @@
 
   <mat-form-field appearance="outline" class="mb-3 w-100">
     <mat-label>Filtrar por espacio</mat-label>
-    <mat-select [(value)]="selectedSpace" (selectionChange)="generateHourSlots()">
-      <mat-option *ngFor="let espacio of uniqueSpaces" [value]="espacio">
+    <mat-select [(value)]="selectedservice" (selectionChange)="generateHourSlots()">
+      <mat-option *ngFor="let espacio of uniqueservices" [value]="espacio">
         {{ espacio }}
       </mat-option>
     </mat-select>
@@ -23,7 +23,7 @@
           <!-- Modo de edición -->
           <div class="reservation-details flex-grow-1">
             <input type="text" class="form-control mb-1" [(ngModel)]="editingReservation.user" placeholder="Usuario">
-            <input type="text" class="form-control mb-1" [(ngModel)]="editingReservation.space" placeholder="Espacio">
+            <input type="text" class="form-control mb-1" [(ngModel)]="editingReservation.service" placeholder="Espacio">
             <div class="d-flex gap-2">
               <button class="btn btn-sm btn-primary" (click)="saveReservation()">Guardar</button>
               <button class="btn btn-sm btn-secondary" (click)="cancelReservation(reservation)">Cancelar</button>
@@ -34,7 +34,7 @@
         <ng-template #viewMode>
           <!-- Modo de visualización -->
           <div class="reservation-details flex-grow-1">
-            <strong>{{ reservation.user }}</strong> - {{ reservation.space }}
+            <strong>{{ reservation.user }}</strong> - {{ reservation.service }}
             <div class="small text-muted">{{ reservation.start | date:'shortTime' }} - {{ reservation.end |
               date:'shortTime' }}</div>
             <div class="mt-1">
@@ -48,7 +48,7 @@
 
       <ng-template #emptySlot>
         <div class="empty-slot flex-grow-1">
-          <button class="btn btn-sm btn-success" (click)="createReservation(hour)">Crear Reserva</button>
+          <button class="btn btn-sm btn-success" (click)="createReservation(hour)">Reservar</button>
         </div>
       </ng-template>
     </div>

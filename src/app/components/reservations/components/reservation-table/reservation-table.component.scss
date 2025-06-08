@@ -1,8 +1,8 @@
 .reservation-list {
   display: flex;
   flex-direction: column;
-  max-height: 600px;
-  overflow-y: auto;
+  max-height: 300px;
+  overflow-y: scroll;
   padding-right: 6px;
 }
 
@@ -122,5 +122,5 @@ tr.editing-row {
 .empty-slot {
   flex-grow: 1;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }

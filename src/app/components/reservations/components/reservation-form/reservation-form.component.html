@@ -23,14 +23,14 @@
  </div>
   
 
-  <div class="form-spaces" style="flex: 1 1 100%;">
+  <div class="form-services" style="flex: 1 1 100%;">
     <h3>Espacios disponibles:</h3>
-    <div class="spaces">
+    <div class="services">
       <button
-        *ngFor="let space of spaces"
-        [disabled]="!availableSpaces.includes(space)"
-        (click)="makeReservation(space)">
-        Reservar {{ space }}
+        *ngFor="let service of services"
+        [disabled]="!availableservices.includes(service)"
+        (click)="makeReservation(service)">
+        Reservar {{ service }}
       </button>
     </div>
   </div>

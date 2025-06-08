@@ -13,7 +13,7 @@ import { NgChartsModule } from 'ng2-charts';
 export class ReservationsBarChartComponent implements OnInit {
 
   // 📥 Datos de entrada
-  @Input() reservations: { id: number; user: string; space: string; start: string; end: string; }[] = [];
+  @Input() reservations: { id: number; user: string; service: string; start: string; end: string; }[] = [];
   @Input() title: string = 'Reservas por sala';
   @Input() columns: number = 1; // Para CSS personalizado
 
@@ -54,7 +54,7 @@ export class ReservationsBarChartComponent implements OnInit {
     const roomCounts: { [room: string]: number } = {};
 
     this.reservations.forEach(res => {
-      roomCounts[res.space] = (roomCounts[res.space] || 0) + 1;
+      roomCounts[res.service] = (roomCounts[res.service] || 0) + 1;
     });
 
     const labels = Object.keys(roomCounts);
