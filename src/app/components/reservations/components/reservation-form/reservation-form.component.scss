@@ -1,25 +1,80 @@
 .reservation-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 0 auto;
-    padding: 1rem;
-    min-width:300px;
-
-
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  min-width: 300px;
+  border-radius: 12px;
+  justify-content: space-between;
 }
 
-input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+.form-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  min-width: 300px;
+  justify-content: flex-start;
+}
+
+/* Cada campo tiene flex con min-width 300px */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 300px; /* crece y se reduce, pero mínimo 300px */
+  min-width: 300px;
+  max-width: 100%;
+}
+
+.form-field label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Contenedor de espacios disponible */
+.form-spaces {
+  flex: 1 1 35%; /* que ocupe el resto (aprox 35%) */
+  min-width: 300px;
+  max-width: 100%;
 }
 
 .spaces {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
 
+.spaces button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--primary-color, #694fad);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.spaces button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 800px) {
+  .reservation-form {
+    flex-direction: column;
+  }
+  .form-questions,
+  .form-spaces {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
 }

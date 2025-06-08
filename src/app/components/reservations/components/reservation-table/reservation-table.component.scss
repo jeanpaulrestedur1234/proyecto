@@ -6,19 +6,24 @@
   padding-right: 6px;
 }
 
+.reservation-table {
+  display: flex;
+  flex-direction: column;
+}
+
 .reservation-slot {
-  background-color: var(--accent-color);
   display: flex;
   align-items: center;
+  background-color: var(--accent-color);
   margin: 0.5rem 0;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(96, 70, 82, 0.1); /* tono 604652 */
+  box-shadow: 0 2px 6px rgba(96, 70, 82, 0.1);
   transition: background-color 0.3s ease;
 }
 
 .reservation-slot:hover {
-  background-color: #f4e7e3; /* suave highlight */
+  background-color: #f4e7e3;
 }
 
 .hour-label {
@@ -30,24 +35,27 @@
 
 .reservation-details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
   flex-grow: 1;
   font-size: 0.95rem;
   color: var(--primary-color);
-  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 1rem;
 }
 
 .reservation-details strong {
   font-size: 1rem;
-  color: var(--primary-color);
 }
 
 .reservation-details .text-muted {
   font-size: 0.85rem;
-  color: #000000;
+  color: #000;
 }
 
-.button-group {
+.button-group,
+.reservation-details .mt-1,
+.reservation-details .d-flex {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.5rem;
@@ -55,47 +63,36 @@
 
 button {
   font-size: 0.85rem;
-  padding: 0.3rem 0.8rem;
-  border-radius: 8px;
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--transition);
 }
 
-/* Botón Editar */
+/* Botones personalizados */
 .btn-edit {
   background-color: #735557;
   color: #fafafa;
 }
-
 .btn-edit:hover {
   background-color: var(--primary-color);
 }
 
-/* Botón Cancelar */
 .btn-cancel {
   background-color: #D29F80;
   color: #fff;
 }
-
 .btn-cancel:hover {
   background-color: #c88565;
 }
 
-/* Botón Crear */
 .btn-create {
   background-color: #97866A;
   color: #fff;
 }
-
 .btn-create:hover {
   background-color: #847656;
-}
-
-.empty-slot {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-start;
 }
 
 /* Inputs */
@@ -116,13 +113,14 @@ input.form-control-sm:focus {
   background-color: #fdf7f5;
 }
 
-/* Transiciones suaves */
-td input.form-control-sm {
-  transition: all 0.2s ease-in-out;
-}
-
-/* Fila en edición */
+/* Edición */
 tr.editing-row {
   background-color: #f4e7e3;
   transition: background-color 0.3s ease;
+}
+
+.empty-slot {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
 }

@@ -1,28 +1,38 @@
 <div class="reservation-form">
-  <label>Usuario:</label>
-  <input type="text" [(ngModel)]="selectedUser" placeholder="Nombre del usuario" />
+ <div class="form-questions">
+  <div class="form-field">
+    <label>Usuario:</label>
+    <input type="text" [(ngModel)]="selectedUser" placeholder="Nombre del usuario" />
+  </div>
 
-  <label>Fecha:</label>
-  <input type="date" [(ngModel)]="day" disabled />
+  <div class="form-field">
+    <label>Fecha:</label>
+    <input type="date" [(ngModel)]="day" disabled />
+  </div>
 
-  <label>hour inicio:</label>
-  <input type="time" [(ngModel)]="hour" disabled />
+  <div class="form-field">
+    <label>Hora inicio:</label>
+    <input type="time" [(ngModel)]="hour" disabled />
+  </div>
 
-  <label>hour fin (editable):</label>
-  <input type="time" [(ngModel)]="endhour" (change)="onEndHourChange()" />
+  <div class="form-field">
+    <label>Hora fin (editable):</label>
+    <input type="time" [(ngModel)]="endhour" (change)="onEndHourChange()" />
+  </div>
+
+ </div>
   
-  <div>
+
+  <div class="form-spaces" style="flex: 1 1 100%;">
     <h3>Espacios disponibles:</h3>
     <div class="spaces">
-      
-    
-    <button
-      *ngFor="let space of spaces"
-      [disabled]="!availableSpaces.includes(space)"
-      (click)="makeReservation(space)"
-    >
-      Reservar {{ space }}
-    </button>
+      <button
+        *ngFor="let space of spaces"
+        [disabled]="!availableSpaces.includes(space)"
+        (click)="makeReservation(space)">
+        Reservar {{ space }}
+      </button>
     </div>
   </div>
+
 </div>

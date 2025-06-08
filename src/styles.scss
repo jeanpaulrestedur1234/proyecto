@@ -33,6 +33,10 @@ html, body {
   /* --- TRANSICIONES --- */
   --transition-ease: 0.3s ease;
   --transition-ease-out: 0.3s ease-in-out;
+
+  --btn-radius: 8px;
+  --btn-padding: 0.3rem 0.8rem;
+  --transition: all 0.2s ease;
 }
 
 /* --- TIPOGRAFÍA GLOBAL --- */

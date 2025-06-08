@@ -101,7 +101,6 @@ export class ReservationsPageComponent implements OnInit {
   } else {
     this.filteredReservations = [...this.reservations];
   }
-  console.log('Filtered Reservations:', this.filteredReservations);
 }
  setReferenceday(day: Date){
   this.referenceDate=day;

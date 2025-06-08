@@ -10,14 +10,13 @@
       <header class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h4 mb-0">Gestión de Reservas</h1>
 
-          <mat-form-field appearance="outline" class="ms-3 w-50">
-            <mat-label>Filter reservations</mat-label>
-            <mat-select [(value)]="filterSelected" (selectionChange)="filterReservations()">
-              <mat-option value="day">Hoy</mat-option>
-              <mat-option value="month">Mes</mat-option>
-              <mat-option value="all">todas</mat-option>
-            </mat-select>
-          </mat-form-field>
+        <mat-form-field appearance="outline" class="ms-3 w-50">
+          <mat-label>Filter reservations</mat-label>
+          <mat-select [(value)]="filterSelected" (selectionChange)="filterReservations()">
+            <mat-option value="month">Mes</mat-option>
+            <mat-option value="all">todas</mat-option>
+          </mat-select>
+        </mat-form-field>
       </header>
       <div class="chart-component col-md-6 mb-4 mb-md-0">
 
@@ -34,36 +33,30 @@
         </div>
         <div class="modal-content">
           <app-reservation-table [reservations]="selectedDayReservations"
-          (create)="openReservationForm($event)"       
-          ></app-reservation-table>
+            (create)="openReservationForm($event)"></app-reservation-table>
 
         </div>
       </div>
     </div>
 
-    
+
     <!-- 📅 Calendario -->
-     <div class="left-column">
+    <div class="left-column">
 
-    
-    <div class="calendary-componenet col-md-6">
-      <h5 class="mb-3">Calendario de Reservas</h5>
-      <app-reservation-calendary 
-      [reservations]="reservations" 
-      (newDateReference)="setReferenceday($event)"
-      (daySelected)="openModalForDay($event)">
-      </app-reservation-calendary>
-    </div>
-    <div class="reservation-form-component col-md-6">
-      <h5 class="mb-3">Nueva Reserva</h5>
-      <app-reservation-form
-       [reservations]="selectedDayReservations"
-       [hour]="formSelectedHour"
-       [day]="formSelectedDate"
-      ></app-reservation-form>
-    </div>
 
-     </div>
+      <div class="calendary-componenet col-md-6">
+        <h5 class="mb-3">Calendario de Reservas</h5>
+        <app-reservation-calendary [reservations]="reservations" (newDateReference)="setReferenceday($event)"
+          (daySelected)="openModalForDay($event)">
+        </app-reservation-calendary>
+      </div>
+      <div class="reservation-form-component col-md-6">
+        <h5 class="mb-3">Nueva Reserva</h5>
+        <app-reservation-form [reservations]="selectedDayReservations" [hour]="formSelectedHour"
+          [day]="formSelectedDate"></app-reservation-form>
+      </div>
+
+    </div>
 
 
   </div>
