@@ -20,6 +20,7 @@
   padding: 1rem 3rem;
   border-radius: 8px;
   box-shadow: inset;
+  margin: 20px;
 
 }
 
@@ -44,9 +45,10 @@
 /* Responsive adjustments (optional) */
 @media (max-width: 960px) {
   .login-right {
-    display: none; /* Hide illustration on smaller screens */
+    display: none; 
   }
   .login-left {
     align-items: center;
+    padding: 0;
   }
 }
