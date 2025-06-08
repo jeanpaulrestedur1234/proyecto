@@ -8,7 +8,7 @@ export const routes: Routes = [
 
   {
     path: '',
-    component: HomeComponent, // Home como layout base
+    component: HomeComponent, 
     children: [
       { path: '', redirectTo: 'reservation', pathMatch: 'full' }, // Redirección por defecto
       { path: 'reservation', component: ReservationsPageComponent } 

@@ -17,9 +17,11 @@ export class ReservationCalendaryComponent {
   today = new Date();
 
   @Output() daySelected = new EventEmitter<Date>();
+  @Output() newDateReference= new EventEmitter<Date>();
 
   ngOnInit() {
     this.generateCalendar();
+    this.newDateReference.emit(this.currentDate);
   }
 
   generateCalendar() {
@@ -46,11 +48,14 @@ export class ReservationCalendaryComponent {
   nextMonth() {
     this.currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 1);
     this.generateCalendar();
+    this.newDateReference.emit(this.currentDate);
   }
 
   prevMonth() {
     this.currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() - 1, 1);
     this.generateCalendar();
+    this.newDateReference.emit(this.currentDate);
+
   }
 
   // Aquí calculamos cuántos espacios vacíos antes del primer día para que la semana empiece en lunes

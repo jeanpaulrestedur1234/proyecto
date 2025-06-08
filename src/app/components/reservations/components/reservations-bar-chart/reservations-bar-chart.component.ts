@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartOptions, ChartType, ChartData } from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
@@ -34,47 +34,54 @@ export class ReservationsBarChartComponent implements OnInit {
     this.generateChartData();
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges): void {
     this.generateChartData();
   }
 
-generateChartData() {
-  if (!this.reservations?.length) return;
+  generateChartData() {
+    if (!this.reservations || this.reservations.length === 0) {
+      this.barChartData = {
+        labels: [],
+        datasets: []
+      };
+      this.barChartOptions.plugins = {
+        ...this.barChartOptions.plugins,
+        title: { display: true, text: this.title }
+      };
+      return;
+    }
 
-  const roomCounts: { [room: string]: number } = {};
+    const roomCounts: { [room: string]: number } = {};
 
-  this.reservations.forEach(res => {
-    roomCounts[res.space] = (roomCounts[res.space] || 0) + 1;
-  });
+    this.reservations.forEach(res => {
+      roomCounts[res.space] = (roomCounts[res.space] || 0) + 1;
+    });
 
-  const labels = Object.keys(roomCounts);
-  const data = Object.values(roomCounts);
+    const labels = Object.keys(roomCounts);
+    const data = Object.values(roomCounts);
 
-  const palette = ['#E0E0E0', '#B0B0B0', '#888888', '#4A4A4A'];
+    const palette = ['#E0E0E0', '#B0B0B0', '#888888', '#4A4A4A'];
+    const backgroundColors = labels.map((_, i) => palette[i % palette.length]);
 
+    this.barChartData = {
+      labels,
+      datasets: [
+        {
+          data,
+          label: this.title,
+          backgroundColor: backgroundColors,
+          borderRadius: 6,
+          borderWidth: 1,
+          borderColor: '#ffffff'
+        }
+      ]
+    };
 
-  // 🎨 Asignar color único a cada sala
-  const backgroundColors = labels.map((_, i) => palette[i % palette.length]);
-
-  this.barChartData = {
-    labels,
-    datasets: [
-      {
-        data,
-        label: this.title,
-        backgroundColor: backgroundColors,
-        borderRadius: 6,
-        borderWidth: 1,
-        borderColor: '#ffffff'
-      }
-    ]
-  };
-
-  this.barChartOptions.plugins = {
-    ...this.barChartOptions.plugins,
-    title: { display: true, text: this.title }
-  };
-}
+    this.barChartOptions.plugins = {
+      ...this.barChartOptions.plugins,
+      title: { display: true, text: this.title }
+    };
+  }
 
 
 }
