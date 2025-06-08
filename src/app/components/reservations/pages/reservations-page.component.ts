@@ -32,6 +32,7 @@ export class ReservationsPageComponent implements OnInit {
   selectedDayReservations: Reservation[] = [];
   editingReservation: Reservation | null = null;
   isModalOpen = false;
+  isFormOpen =false;
   selectedDate='';
   formSelectedDate='';
   formSelectedHour='';
@@ -54,6 +55,10 @@ export class ReservationsPageComponent implements OnInit {
 
   closeModal() {
     this.isModalOpen = false;
+    this.isFormOpen = false;
+    this.editingReservation = null;
+    this.formSelectedDate = '';
+    this.formSelectedHour = '';
   }
 
   onEdit(reservation: Reservation) {
@@ -80,6 +85,7 @@ export class ReservationsPageComponent implements OnInit {
   }
   openReservationForm(hour: string) {
     this.formSelectedHour= hour
+    this.isFormOpen=true;
 
 
   }
@@ -106,7 +112,7 @@ export class ReservationsPageComponent implements OnInit {
   this.referenceDate=day;
   this.filterReservations()
 
-  
+
  }
 
   private refreshReservations() {
