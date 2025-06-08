@@ -31,6 +31,7 @@ export class ReservationTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log( "reservaciones del dia", this.reservations)
     this.initservices();
     this.generateHourSlots();
   }

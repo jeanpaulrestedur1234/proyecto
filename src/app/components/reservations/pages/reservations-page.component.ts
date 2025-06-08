@@ -48,7 +48,7 @@ export class ReservationsPageComponent implements OnInit {
   openModalForDay(day: Date) {
     const selectedDate = day.toISOString().split('T')[0];
     this.formSelectedDate = selectedDate ;
-    this.selectedDayReservations = this.reservationService.getReservationsByDate(selectedDate);
+    this.selectedDayReservations = this.reservationService.getReservationsByDate(selectedDate, this.reservations);
     this.selectedDate = format(day, 'EEEE, dd MMMM yyyy', { locale: es });
     this.isModalOpen = true;
   }
@@ -67,14 +67,12 @@ export class ReservationsPageComponent implements OnInit {
 
   onCancel(reservation: Reservation) {
     this.reservationService.deleteReservation(reservation.id);
-    this.refreshReservations();
     this.selectedDayReservations = this.selectedDayReservations.filter(r => r.id !== reservation.id);
   }
 
   saveEdit() {
     if (this.editingReservation) {
       this.reservationService.updateReservation(this.editingReservation);
-      this.refreshReservations();
       this.editingReservation = null;
     }
   }
@@ -112,6 +110,12 @@ export class ReservationsPageComponent implements OnInit {
   this.referenceDate=day;
   this.filterReservations()
 
+
+ }
+ reservationMade(reservation :Reservation ){
+   this.reservations.push(reservation)
+   this.selectedDayReservations = this.reservationService.getReservationsByDate(this.formSelectedDate, this.reservations);
+   this.filterReservations()
 
  }
 

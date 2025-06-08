@@ -50,10 +50,14 @@
           (daySelected)="openModalForDay($event)">
         </app-reservation-calendary>
       </div>
-      <div class="reservation-form-component col-md-6">
+      <div class="reservation-form-component col-md-6" *ngIf="isFormOpen">
         <h5 class="mb-3">Nueva Reserva</h5>
-        <app-reservation-form [reservations]="selectedDayReservations" [hour]="formSelectedHour"
-          [day]="formSelectedDate"></app-reservation-form>
+        <app-reservation-form 
+        [reservations]="selectedDayReservations" 
+        [hour]="formSelectedHour"
+        [day]="formSelectedDate"
+        (reservationMade)="reservationMade($event)"
+          ></app-reservation-form>
       </div>
 
     </div>

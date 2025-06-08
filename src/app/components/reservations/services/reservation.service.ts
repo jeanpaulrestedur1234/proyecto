@@ -13,8 +13,14 @@ export class ReservationService {
     return [...this.reservations];
   }
 
-  getReservationsByDate(date: string): Reservation[] {
-    return this.reservations.filter(r => r.start.startsWith(date));
+  getReservationsByDate(date: string, reservations: Reservation[]=[] ): Reservation[] {
+    if (reservations.length === 0) {
+       return this.reservations.filter(r => r.start.startsWith(date));
+    }
+    else{
+       return reservations.filter(r => r.start.startsWith(date));
+    }
+   
   }
 
   updateReservation(updated: Reservation) {

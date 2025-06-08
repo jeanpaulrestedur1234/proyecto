@@ -26,6 +26,7 @@ export class ReservationFormComponent implements OnChanges {
 
   @Input() day: string = ''; 
   @Input() hour: string = ''; 
+  @Output() reservationMade = new EventEmitter<Reservation>();
 
   selectedUser: string = '';
 
@@ -117,6 +118,7 @@ export class ReservationFormComponent implements OnChanges {
     };
 
     this.reservations.push(newReservation);
+    this.reservationMade.emit(newReservation);
     alert(`Reserva confirmada en ${service} para ${this.selectedUser}.`);
     this.checkAvailability();
   }
